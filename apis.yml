@@ -1,0 +1,34 @@
+aid: apache-zeppelin
+name: Apache Zeppelin
+description: >-
+  Apache Zeppelin is a web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala, Python, R, and more. It provides built-in data visualization and collaboration features.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Notebook
+  - Interactive Computing
+  - Data Analytics
+  - Visualization
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apache-zeppelin/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: apache-zeppelin:apache-zeppelin-rest-api
+    name: Apache Zeppelin REST API
+    description: >-
+      The Zeppelin REST API provides endpoints for managing notebooks, paragraphs, interpreters, credentials, and configurations, along with a Helium plugin API and WebSocket API for real-time notebook collaboration.
+    humanURL: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
+    tags:
+      - REST
+      - Notebooks
+      - Interpreters
+    properties:
+      - type: Documentation
+        url: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
