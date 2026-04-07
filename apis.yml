@@ -7,9 +7,9 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Notebook
-  - Interactive Computing
   - Data Analytics
+  - Interactive Computing
+  - Notebook
   - Visualization
 created: '2026-03-16'
 modified: '2026-03-16'
@@ -23,9 +23,9 @@ apis:
       The Zeppelin REST API provides endpoints for managing notebooks, paragraphs, interpreters, credentials, and configurations, along with a Helium plugin API and WebSocket API for real-time notebook collaboration.
     humanURL: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
     tags:
-      - REST
-      - Notebooks
       - Interpreters
+      - Notebooks
+      - REST
     properties:
       - type: Documentation
         url: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
