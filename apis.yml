@@ -42,6 +42,8 @@ apis:
         url: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
       - type: Documentation
         url: https://zeppelin.apache.org/docs/latest/usage/rest_api/interpreter.html
+      - url: openapi/apache-zeppelin-openapi.yml
+        type: OpenAPI
 common:
   - type: GitHubRepository
     url: https://github.com/apache/zeppelin

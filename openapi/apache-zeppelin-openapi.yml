@@ -1,0 +1,181 @@
+openapi: 3.1.0
+info:
+  title: Apache Zeppelin Notebook REST API
+  version: "1.0"
+  description: >-
+    Minimal OpenAPI for the Apache Zeppelin notebook REST API covering notebook
+    CRUD, paragraph management, scheduling (cron), permissions, revisions, jobs,
+    and search.
+servers:
+  - url: http://localhost:8080
+    description: Zeppelin server
+x-generated-from: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
+x-generated-by: claude-crawl-2026-05-08
+paths:
+  /api/notebook:
+    get:
+      summary: List notebooks
+      responses: { "200": { description: OK } }
+    post:
+      summary: Create notebook
+      responses: { "201": { description: Created } }
+  /api/notebook/{noteId}:
+    get:
+      summary: Get notebook
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    post:
+      summary: Run all paragraphs
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    delete:
+      summary: Delete notebook
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/rename:
+    put:
+      summary: Rename notebook
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/clear:
+    put:
+      summary: Clear all paragraph results
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/export/{noteId}:
+    get:
+      summary: Export notebook
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/import:
+    post:
+      summary: Import notebook
+      responses: { "200": { description: OK } }
+  /api/notebook/job/{noteId}:
+    get:
+      summary: Get notebook job status
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    delete:
+      summary: Stop notebook job
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/job/{noteId}/{paragraphId}:
+    get:
+      summary: Get paragraph job status
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+    post:
+      summary: Run paragraph asynchronously
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+    delete:
+      summary: Stop paragraph job
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+  /api/notebook/run/{noteId}/{paragraphId}:
+    post:
+      summary: Run paragraph synchronously
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/paragraph:
+    post:
+      summary: Create paragraph
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "201": { description: Created } }
+  /api/notebook/{noteId}/paragraph/{paragraphId}:
+    get:
+      summary: Get paragraph
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+    put:
+      summary: Update paragraph text
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+    delete:
+      summary: Delete paragraph
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/paragraph/{paragraphId}/config:
+    put:
+      summary: Update paragraph config
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/paragraph/{paragraphId}/move/{newIndex}:
+    post:
+      summary: Move paragraph to new index
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: paragraphId, in: path, required: true, schema: { type: string } }
+        - { name: newIndex, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+  /api/notebook/search:
+    get:
+      summary: Search notebooks
+      parameters:
+        - { name: q, in: query, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+  /api/notebook/cron/{noteId}:
+    get:
+      summary: Get cron schedule
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    post:
+      summary: Register cron schedule
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    delete:
+      summary: Remove cron schedule
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/permissions:
+    get:
+      summary: Get notebook permissions
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    put:
+      summary: Update notebook permissions
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/revision:
+    get:
+      summary: List revisions
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+    post:
+      summary: Create revision (commit)
+      parameters: [ { name: noteId, in: path, required: true, schema: { type: string } } ]
+      responses: { "200": { description: OK } }
+  /api/notebook/{noteId}/revision/{revisionId}:
+    get:
+      summary: Get specific revision
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: revisionId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+    put:
+      summary: Set notebook to a specific revision
+      parameters:
+        - { name: noteId, in: path, required: true, schema: { type: string } }
+        - { name: revisionId, in: path, required: true, schema: { type: string } }
+      responses: { "200": { description: OK } }
+components:
+  schemas:
+    GenericObject:
+      type: object
