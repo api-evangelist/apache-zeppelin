@@ -1,0 +1,1260 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Zeppelin Notebook REST API
+  description: 'Apache Zeppelin Notebook REST API. 31 operations. Lead operation: List notebooks. Self-contained Naftiko capability
+    covering one Apache Zeppelin business surface.'
+  tags:
+  - Apache Zeppelin
+  - Apache Zeppelin Notebook REST API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_ZEPPELIN_API_KEY: APACHE_ZEPPELIN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apache-zeppelin
+    baseUri: http://localhost:8080
+    description: Apache Zeppelin Notebook REST API business capability. Self-contained, no shared references.
+    resources:
+    - name: api-notebook
+      path: /api/notebook
+      operations:
+      - name: get
+        method: GET
+        description: List notebooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post
+        method: POST
+        description: Create notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-notebook-cron-noteId
+      path: /api/notebook/cron/{noteId}
+      operations:
+      - name: get
+        method: GET
+        description: Get cron schedule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: post
+        method: POST
+        description: Register cron schedule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Remove cron schedule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-export-noteId
+      path: /api/notebook/export/{noteId}
+      operations:
+      - name: get
+        method: GET
+        description: Export notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-import
+      path: /api/notebook/import
+      operations:
+      - name: post
+        method: POST
+        description: Import notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-notebook-job-noteId
+      path: /api/notebook/job/{noteId}
+      operations:
+      - name: get
+        method: GET
+        description: Get notebook job status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Stop notebook job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-job-noteId-paragraphId
+      path: /api/notebook/job/{noteId}/{paragraphId}
+      operations:
+      - name: get
+        method: GET
+        description: Get paragraph job status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+      - name: post
+        method: POST
+        description: Run paragraph asynchronously
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Stop paragraph job
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-run-noteId-paragraphId
+      path: /api/notebook/run/{noteId}/{paragraphId}
+      operations:
+      - name: post
+        method: POST
+        description: Run paragraph synchronously
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-search
+      path: /api/notebook/search
+      operations:
+      - name: get
+        method: GET
+        description: Search notebooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: true
+    - name: api-notebook-noteId
+      path: /api/notebook/{noteId}
+      operations:
+      - name: get
+        method: GET
+        description: Get notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: post
+        method: POST
+        description: Run all paragraphs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Delete notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-clear
+      path: /api/notebook/{noteId}/clear
+      operations:
+      - name: put
+        method: PUT
+        description: Clear all paragraph results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-paragraph
+      path: /api/notebook/{noteId}/paragraph
+      operations:
+      - name: post
+        method: POST
+        description: Create paragraph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-paragraph-paragraphId
+      path: /api/notebook/{noteId}/paragraph/{paragraphId}
+      operations:
+      - name: get
+        method: GET
+        description: Get paragraph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+      - name: put
+        method: PUT
+        description: Update paragraph text
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+      - name: delete
+        method: DELETE
+        description: Delete paragraph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-paragraph-paragraphId-config
+      path: /api/notebook/{noteId}/paragraph/{paragraphId}/config
+      operations:
+      - name: put
+        method: PUT
+        description: Update paragraph config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-paragraph-paragraphId-move-newIndex
+      path: /api/notebook/{noteId}/paragraph/{paragraphId}/move/{newIndex}
+      operations:
+      - name: post
+        method: POST
+        description: Move paragraph to new index
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: paragraphId
+          in: path
+          type: string
+          required: true
+        - name: newIndex
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-permissions
+      path: /api/notebook/{noteId}/permissions
+      operations:
+      - name: get
+        method: GET
+        description: Get notebook permissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: put
+        method: PUT
+        description: Update notebook permissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-rename
+      path: /api/notebook/{noteId}/rename
+      operations:
+      - name: put
+        method: PUT
+        description: Rename notebook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-revision
+      path: /api/notebook/{noteId}/revision
+      operations:
+      - name: get
+        method: GET
+        description: List revisions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+      - name: post
+        method: POST
+        description: Create revision (commit)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+    - name: api-notebook-noteId-revision-revisionId
+      path: /api/notebook/{noteId}/revision/{revisionId}
+      operations:
+      - name: get
+        method: GET
+        description: Get specific revision
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: revisionId
+          in: path
+          type: string
+          required: true
+      - name: put
+        method: PUT
+        description: Set notebook to a specific revision
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: noteId
+          in: path
+          type: string
+          required: true
+        - name: revisionId
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: apache-zeppelin-rest
+    port: 8080
+    description: REST adapter for Apache Zeppelin Notebook REST API. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/notebook
+      name: api-notebook
+      description: REST surface for api-notebook.
+      operations:
+      - method: GET
+        name: get
+        description: List notebooks
+        call: apache-zeppelin.get
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Create notebook
+        call: apache-zeppelin.post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/cron/{noteid}
+      name: api-notebook-cron-noteid
+      description: REST surface for api-notebook-cron-noteId.
+      operations:
+      - method: GET
+        name: get
+        description: Get cron schedule
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Register cron schedule
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Remove cron schedule
+        call: apache-zeppelin.delete
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/export/{noteid}
+      name: api-notebook-export-noteid
+      description: REST surface for api-notebook-export-noteId.
+      operations:
+      - method: GET
+        name: get
+        description: Export notebook
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/import
+      name: api-notebook-import
+      description: REST surface for api-notebook-import.
+      operations:
+      - method: POST
+        name: post
+        description: Import notebook
+        call: apache-zeppelin.post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/job/{noteid}
+      name: api-notebook-job-noteid
+      description: REST surface for api-notebook-job-noteId.
+      operations:
+      - method: GET
+        name: get
+        description: Get notebook job status
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Stop notebook job
+        call: apache-zeppelin.delete
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/job/{noteid}/{paragraphid}
+      name: api-notebook-job-noteid-paragraphid
+      description: REST surface for api-notebook-job-noteId-paragraphId.
+      operations:
+      - method: GET
+        name: get
+        description: Get paragraph job status
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Run paragraph asynchronously
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Stop paragraph job
+        call: apache-zeppelin.delete
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/run/{noteid}/{paragraphid}
+      name: api-notebook-run-noteid-paragraphid
+      description: REST surface for api-notebook-run-noteId-paragraphId.
+      operations:
+      - method: POST
+        name: post
+        description: Run paragraph synchronously
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/search
+      name: api-notebook-search
+      description: REST surface for api-notebook-search.
+      operations:
+      - method: GET
+        name: get
+        description: Search notebooks
+        call: apache-zeppelin.get
+        with:
+          q: rest.q
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}
+      name: api-notebook-noteid
+      description: REST surface for api-notebook-noteId.
+      operations:
+      - method: GET
+        name: get
+        description: Get notebook
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Run all paragraphs
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Delete notebook
+        call: apache-zeppelin.delete
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/clear
+      name: api-notebook-noteid-clear
+      description: REST surface for api-notebook-noteId-clear.
+      operations:
+      - method: PUT
+        name: put
+        description: Clear all paragraph results
+        call: apache-zeppelin.put
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/paragraph
+      name: api-notebook-noteid-paragraph
+      description: REST surface for api-notebook-noteId-paragraph.
+      operations:
+      - method: POST
+        name: post
+        description: Create paragraph
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/paragraph/{paragraphid}
+      name: api-notebook-noteid-paragraph-paragraphid
+      description: REST surface for api-notebook-noteId-paragraph-paragraphId.
+      operations:
+      - method: GET
+        name: get
+        description: Get paragraph
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Update paragraph text
+        call: apache-zeppelin.put
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Delete paragraph
+        call: apache-zeppelin.delete
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/paragraph/{paragraphid}/config
+      name: api-notebook-noteid-paragraph-paragraphid-config
+      description: REST surface for api-notebook-noteId-paragraph-paragraphId-config.
+      operations:
+      - method: PUT
+        name: put
+        description: Update paragraph config
+        call: apache-zeppelin.put
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/paragraph/{paragraphid}/move/{newindex}
+      name: api-notebook-noteid-paragraph-paragraphid-move-newindex
+      description: REST surface for api-notebook-noteId-paragraph-paragraphId-move-newIndex.
+      operations:
+      - method: POST
+        name: post
+        description: Move paragraph to new index
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+          paragraphId: rest.paragraphId
+          newIndex: rest.newIndex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/permissions
+      name: api-notebook-noteid-permissions
+      description: REST surface for api-notebook-noteId-permissions.
+      operations:
+      - method: GET
+        name: get
+        description: Get notebook permissions
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Update notebook permissions
+        call: apache-zeppelin.put
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/rename
+      name: api-notebook-noteid-rename
+      description: REST surface for api-notebook-noteId-rename.
+      operations:
+      - method: PUT
+        name: put
+        description: Rename notebook
+        call: apache-zeppelin.put
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/revision
+      name: api-notebook-noteid-revision
+      description: REST surface for api-notebook-noteId-revision.
+      operations:
+      - method: GET
+        name: get
+        description: List revisions
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Create revision (commit)
+        call: apache-zeppelin.post
+        with:
+          noteId: rest.noteId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/notebook/{noteid}/revision/{revisionid}
+      name: api-notebook-noteid-revision-revisionid
+      description: REST surface for api-notebook-noteId-revision-revisionId.
+      operations:
+      - method: GET
+        name: get
+        description: Get specific revision
+        call: apache-zeppelin.get
+        with:
+          noteId: rest.noteId
+          revisionId: rest.revisionId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: put
+        description: Set notebook to a specific revision
+        call: apache-zeppelin.put
+        with:
+          noteId: rest.noteId
+          revisionId: rest.revisionId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apache-zeppelin-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Zeppelin Notebook REST API. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-notebooks
+      description: List notebooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-notebook
+      description: Create notebook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-cron-schedule
+      description: Get cron schedule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: register-cron-schedule
+      description: Register cron schedule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-cron-schedule
+      description: Remove cron schedule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apache-zeppelin.delete
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: export-notebook
+      description: Export notebook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: import-notebook
+      description: Import notebook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-notebook-job-status
+      description: Get notebook job status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stop-notebook-job
+      description: Stop notebook job
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apache-zeppelin.delete
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-paragraph-job-status
+      description: Get paragraph job status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: run-paragraph-asynchronously
+      description: Run paragraph asynchronously
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stop-paragraph-job
+      description: Stop paragraph job
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apache-zeppelin.delete
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: run-paragraph-synchronously
+      description: Run paragraph synchronously
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-notebooks
+      description: Search notebooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        q: tools.q
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-notebook
+      description: Get notebook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: run-all-paragraphs
+      description: Run all paragraphs
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-notebook
+      description: Delete notebook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apache-zeppelin.delete
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: clear-all-paragraph-results
+      description: Clear all paragraph results
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.put
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-paragraph
+      description: Create paragraph
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-paragraph
+      description: Get paragraph
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-paragraph-text
+      description: Update paragraph text
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.put
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-paragraph
+      description: Delete paragraph
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: apache-zeppelin.delete
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-paragraph-config
+      description: Update paragraph config
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.put
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: move-paragraph-new-index
+      description: Move paragraph to new index
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+        paragraphId: tools.paragraphId
+        newIndex: tools.newIndex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-notebook-permissions
+      description: Get notebook permissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-notebook-permissions
+      description: Update notebook permissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.put
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: rename-notebook
+      description: Rename notebook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.put
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-revisions
+      description: List revisions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-revision-commit
+      description: Create revision (commit)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apache-zeppelin.post
+      with:
+        noteId: tools.noteId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-specific-revision
+      description: Get specific revision
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.get
+      with:
+        noteId: tools.noteId
+        revisionId: tools.revisionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-notebook-specific-revision
+      description: Set notebook to a specific revision
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: apache-zeppelin.put
+      with:
+        noteId: tools.noteId
+        revisionId: tools.revisionId
+      outputParameters:
+      - type: object
+        mapping: $.
