@@ -1,0 +1,607 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Zeppelin Notebook REST API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List notebooks",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook"
+      },
+      "docs": "List notebooks"
+    },
+    {
+      "info": {
+        "name": "Create notebook",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook"
+      },
+      "docs": "Create notebook"
+    },
+    {
+      "info": {
+        "name": "Get notebook",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get notebook"
+    },
+    {
+      "info": {
+        "name": "Run all paragraphs",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Run all paragraphs"
+    },
+    {
+      "info": {
+        "name": "Delete notebook",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/api/notebook/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete notebook"
+    },
+    {
+      "info": {
+        "name": "Rename notebook",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://localhost:8080/api/notebook/:noteId/rename",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Rename notebook"
+    },
+    {
+      "info": {
+        "name": "Clear all paragraph results",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://localhost:8080/api/notebook/:noteId/clear",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Clear all paragraph results"
+    },
+    {
+      "info": {
+        "name": "Export notebook",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/export/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Export notebook"
+    },
+    {
+      "info": {
+        "name": "Import notebook",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/import"
+      },
+      "docs": "Import notebook"
+    },
+    {
+      "info": {
+        "name": "Get notebook job status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/job/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get notebook job status"
+    },
+    {
+      "info": {
+        "name": "Stop notebook job",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/api/notebook/job/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Stop notebook job"
+    },
+    {
+      "info": {
+        "name": "Get paragraph job status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/job/:noteId/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get paragraph job status"
+    },
+    {
+      "info": {
+        "name": "Run paragraph asynchronously",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/job/:noteId/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Run paragraph asynchronously"
+    },
+    {
+      "info": {
+        "name": "Stop paragraph job",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/api/notebook/job/:noteId/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Stop paragraph job"
+    },
+    {
+      "info": {
+        "name": "Run paragraph synchronously",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/run/:noteId/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Run paragraph synchronously"
+    },
+    {
+      "info": {
+        "name": "Create paragraph",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/:noteId/paragraph",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Create paragraph"
+    },
+    {
+      "info": {
+        "name": "Get paragraph",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/:noteId/paragraph/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get paragraph"
+    },
+    {
+      "info": {
+        "name": "Update paragraph text",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://localhost:8080/api/notebook/:noteId/paragraph/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Update paragraph text"
+    },
+    {
+      "info": {
+        "name": "Delete paragraph",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/api/notebook/:noteId/paragraph/:paragraphId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete paragraph"
+    },
+    {
+      "info": {
+        "name": "Update paragraph config",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://localhost:8080/api/notebook/:noteId/paragraph/:paragraphId/config",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Update paragraph config"
+    },
+    {
+      "info": {
+        "name": "Move paragraph to new index",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/:noteId/paragraph/:paragraphId/move/:newIndex",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paragraphId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "newIndex",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Move paragraph to new index"
+    },
+    {
+      "info": {
+        "name": "Search notebooks",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/search",
+        "params": [
+          {
+            "name": "q",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Search notebooks"
+    },
+    {
+      "info": {
+        "name": "Get cron schedule",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/cron/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get cron schedule"
+    },
+    {
+      "info": {
+        "name": "Register cron schedule",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/cron/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Register cron schedule"
+    },
+    {
+      "info": {
+        "name": "Remove cron schedule",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://localhost:8080/api/notebook/cron/:noteId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Remove cron schedule"
+    },
+    {
+      "info": {
+        "name": "Get notebook permissions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/:noteId/permissions",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get notebook permissions"
+    },
+    {
+      "info": {
+        "name": "Update notebook permissions",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://localhost:8080/api/notebook/:noteId/permissions",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Update notebook permissions"
+    },
+    {
+      "info": {
+        "name": "List revisions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/:noteId/revision",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List revisions"
+    },
+    {
+      "info": {
+        "name": "Create revision (commit)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/notebook/:noteId/revision",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Create revision (commit)"
+    },
+    {
+      "info": {
+        "name": "Get specific revision",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8080/api/notebook/:noteId/revision/:revisionId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "revisionId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get specific revision"
+    },
+    {
+      "info": {
+        "name": "Set notebook to a specific revision",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://localhost:8080/api/notebook/:noteId/revision/:revisionId",
+        "params": [
+          {
+            "name": "noteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "revisionId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Set notebook to a specific revision"
+    }
+  ],
+  "bundled": true
+}
