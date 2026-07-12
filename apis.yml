@@ -43,6 +43,10 @@ apis:
       - url: openapi/apache-zeppelin-openapi.yml
         type: OpenAPI
 common:
+  - type: VulnerabilityDisclosure
+    url: security/apache-zeppelin-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/apache-zeppelin-domain-security.yml
   - type: GitHubRepository
     url: https://github.com/apache/zeppelin
   - type: Documentation
