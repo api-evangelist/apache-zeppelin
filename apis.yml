@@ -43,6 +43,8 @@ apis:
       - url: openapi/apache-zeppelin-openapi.yml
         type: OpenAPI
 common:
+  - type: AgenticAccess
+    url: agentic-access/apache-zeppelin-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/apache-zeppelin-vulnerability-disclosure.yml
   - type: DomainSecurity
