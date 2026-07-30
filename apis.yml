@@ -7,9 +7,21 @@ description: >-
   for notebook management, interpreter configuration, and job execution. It is maintained by the Apache Software
   Foundation.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-zeppelin.png
 tags:
   - Data Analytics
   - Interactive Computing
@@ -21,27 +33,19 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-zeppelin/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: apache-zeppelin:apache-zeppelin-rest-api
-    name: Apache Zeppelin REST API
-    description: >-
-      The Zeppelin REST API provides HTTP endpoints for managing notebooks, notes, paragraphs, interpreters, and
-      credentials. Key endpoints include: GET/POST /api/notebook for notebook CRUD, GET/POST
-      /api/notebook/{noteId}/paragraph for paragraph management, POST /api/notebook/job/{noteId} for running all
-      paragraphs, GET /api/interpreter/setting for interpreter listing, and POST /api/interpreter/setting/restart for
-      restarting interpreters. Returns JSON responses with status codes.
-    humanURL: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
-    tags:
-      - REST
-      - Notebooks
-      - Paragraphs
-      - Interpreter
-    properties:
-      - type: Documentation
-        url: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
-      - type: Documentation
-        url: https://zeppelin.apache.org/docs/latest/usage/rest_api/interpreter.html
-      - url: openapi/apache-zeppelin-openapi.yml
-        type: OpenAPI
+- aid: apache-zeppelin:apache-zeppelin-notebook-api
+  name: Apache Zeppelin Notebook API
+  description: The Notebook API from Apache Zeppelin — 18 operation(s) for notebook.
+  humanURL: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
+  tags:
+  - Notebook
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-zeppelin-notebook-api-openapi.yml
+  - type: Documentation
+    url: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
+  - type: Documentation
+    url: https://zeppelin.apache.org/docs/latest/usage/rest_api/interpreter.html
 common:
   - type: AgenticAccess
     url: agentic-access/apache-zeppelin-agentic-access.yml
