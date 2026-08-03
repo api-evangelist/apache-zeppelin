@@ -1,0 +1,14 @@
+{
+  "provider": "apache-zeppelin",
+  "sources": [
+    "apache-zeppelin-notebook-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-zeppelin-notebook-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
