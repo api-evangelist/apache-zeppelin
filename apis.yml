@@ -47,6 +47,13 @@ apis:
   - type: Documentation
     url: https://zeppelin.apache.org/docs/latest/usage/rest_api/interpreter.html
 common:
+  - type: SecurityPolicy
+    url: https://github.com/apache/zeppelin/blob/master/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/apache/zeppelin/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/apache-zeppelin-agentic-access.yml
   - type: VulnerabilityDisclosure
