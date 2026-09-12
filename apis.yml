@@ -67,6 +67,8 @@ apis:
   - type: Documentation
     url: https://zeppelin.apache.org/docs/latest/usage/rest_api/interpreter.html
 common:
+  - type: Website
+    url: https://www.apache.org/
   - type: SecurityPolicy
     url: https://github.com/apache/zeppelin/blob/master/SECURITY.md
   - type: CodeOfConduct
