@@ -39,7 +39,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apache-zep
 tags:
   - Data Analytics
   - Interactive Computing
-  - Notebook
+  - Notebooks
   - Visualization
   - Open-Source
 tags_raw:
@@ -58,6 +58,8 @@ apis:
   description: The Notebook API from Apache Zeppelin — 18 operation(s) for notebook.
   humanURL: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
   tags:
+  - Notebooks
+  tags_raw:
   - Notebook
   properties:
   - type: OpenAPI
