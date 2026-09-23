@@ -1,7 +1,7 @@
 {
   "provider": "apache-zeppelin",
   "sources": [
-    "apache-zeppelin-notebook-api-openapi.yml"
+    "_ae-authored/apache-zeppelin-openapi.yml"
   ],
   "outputs": [
     "apache-zeppelin-notebook-api-openapi.yml"
@@ -9,6 +9,44 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-zeppelin-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths DELETE /api/notebook/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/rename -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/clear -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/export/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/import -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/job/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths DELETE /api/notebook/job/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/job/{noteId}/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/job/{noteId}/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths DELETE /api/notebook/job/{noteId}/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/run/{noteId}/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/{noteId}/paragraph -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/{noteId}/paragraph/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/paragraph/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths DELETE /api/notebook/{noteId}/paragraph/{paragraphId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/paragraph/{paragraphId}/config -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/{noteId}/paragraph/{paragraphId}/move/{newIndex} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/search -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/cron/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/cron/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths DELETE /api/notebook/cron/{noteId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/{noteId}/permissions -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/permissions -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/{noteId}/revision -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook/{noteId}/revision -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/{noteId}/revision/{revisionId} -> Notebook",
+    "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/revision/{revisionId} -> Notebook",
+    "apache-zeppelin-openapi.yml: declared missing tag: Notebook",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apache-zeppelin-notebook-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

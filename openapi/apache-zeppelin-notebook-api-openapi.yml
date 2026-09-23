@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Apache Zeppelin REST Notebook API
   version: '1.0'
@@ -17,6 +17,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebook
+      x-operation-id-source: derived
     post:
       summary: Create notebook
       responses:
@@ -24,6 +26,8 @@ paths:
           description: Created
       tags:
       - Notebook
+      operationId: postApiNotebook
+      x-operation-id-source: derived
   /api/notebook/{noteId}:
     get:
       summary: Get notebook
@@ -38,6 +42,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookByNoteId
+      x-operation-id-source: derived
     post:
       summary: Run all paragraphs
       parameters:
@@ -51,6 +57,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookByNoteId
+      x-operation-id-source: derived
     delete:
       summary: Delete notebook
       parameters:
@@ -64,6 +72,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: deleteApiNotebookByNoteId
+      x-operation-id-source: derived
   /api/notebook/{noteId}/rename:
     put:
       summary: Rename notebook
@@ -78,6 +88,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: putApiNotebookByNoteIdRename
+      x-operation-id-source: derived
   /api/notebook/{noteId}/clear:
     put:
       summary: Clear all paragraph results
@@ -92,6 +104,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: putApiNotebookByNoteIdClear
+      x-operation-id-source: derived
   /api/notebook/export/{noteId}:
     get:
       summary: Export notebook
@@ -106,6 +120,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookExportByNoteId
+      x-operation-id-source: derived
   /api/notebook/import:
     post:
       summary: Import notebook
@@ -114,6 +130,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookImport
+      x-operation-id-source: derived
   /api/notebook/job/{noteId}:
     get:
       summary: Get notebook job status
@@ -128,6 +146,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookJobByNoteId
+      x-operation-id-source: derived
     delete:
       summary: Stop notebook job
       parameters:
@@ -141,6 +161,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: deleteApiNotebookJobByNoteId
+      x-operation-id-source: derived
   /api/notebook/job/{noteId}/{paragraphId}:
     get:
       summary: Get paragraph job status
@@ -160,6 +182,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookJobByNoteIdByParagraphId
+      x-operation-id-source: derived
     post:
       summary: Run paragraph asynchronously
       parameters:
@@ -178,6 +202,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookJobByNoteIdByParagraphId
+      x-operation-id-source: derived
     delete:
       summary: Stop paragraph job
       parameters:
@@ -196,6 +222,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: deleteApiNotebookJobByNoteIdByParagraphId
+      x-operation-id-source: derived
   /api/notebook/run/{noteId}/{paragraphId}:
     post:
       summary: Run paragraph synchronously
@@ -215,6 +243,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookRunByNoteIdByParagraphId
+      x-operation-id-source: derived
   /api/notebook/{noteId}/paragraph:
     post:
       summary: Create paragraph
@@ -229,6 +259,8 @@ paths:
           description: Created
       tags:
       - Notebook
+      operationId: postApiNotebookByNoteIdParagraph
+      x-operation-id-source: derived
   /api/notebook/{noteId}/paragraph/{paragraphId}:
     get:
       summary: Get paragraph
@@ -248,6 +280,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookByNoteIdParagraphByParagraphId
+      x-operation-id-source: derived
     put:
       summary: Update paragraph text
       parameters:
@@ -266,6 +300,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: putApiNotebookByNoteIdParagraphByParagraphId
+      x-operation-id-source: derived
     delete:
       summary: Delete paragraph
       parameters:
@@ -284,6 +320,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: deleteApiNotebookByNoteIdParagraphByParagraphId
+      x-operation-id-source: derived
   /api/notebook/{noteId}/paragraph/{paragraphId}/config:
     put:
       summary: Update paragraph config
@@ -303,6 +341,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: putApiNotebookByNoteIdParagraphByParagraphIdConfig
+      x-operation-id-source: derived
   /api/notebook/{noteId}/paragraph/{paragraphId}/move/{newIndex}:
     post:
       summary: Move paragraph to new index
@@ -327,6 +367,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookByNoteIdParagraphByParagraphIdMoveByNewIndex
+      x-operation-id-source: derived
   /api/notebook/search:
     get:
       summary: Search notebooks
@@ -341,6 +383,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookSearch
+      x-operation-id-source: derived
   /api/notebook/cron/{noteId}:
     get:
       summary: Get cron schedule
@@ -355,6 +399,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookCronByNoteId
+      x-operation-id-source: derived
     post:
       summary: Register cron schedule
       parameters:
@@ -368,6 +414,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookCronByNoteId
+      x-operation-id-source: derived
     delete:
       summary: Remove cron schedule
       parameters:
@@ -381,6 +429,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: deleteApiNotebookCronByNoteId
+      x-operation-id-source: derived
   /api/notebook/{noteId}/permissions:
     get:
       summary: Get notebook permissions
@@ -395,6 +445,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookByNoteIdPermissions
+      x-operation-id-source: derived
     put:
       summary: Update notebook permissions
       parameters:
@@ -408,6 +460,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: putApiNotebookByNoteIdPermissions
+      x-operation-id-source: derived
   /api/notebook/{noteId}/revision:
     get:
       summary: List revisions
@@ -422,6 +476,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookByNoteIdRevision
+      x-operation-id-source: derived
     post:
       summary: Create revision (commit)
       parameters:
@@ -435,6 +491,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: postApiNotebookByNoteIdRevision
+      x-operation-id-source: derived
   /api/notebook/{noteId}/revision/{revisionId}:
     get:
       summary: Get specific revision
@@ -454,6 +512,8 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: getApiNotebookByNoteIdRevisionByRevisionId
+      x-operation-id-source: derived
     put:
       summary: Set notebook to a specific revision
       parameters:
@@ -472,5 +532,7 @@ paths:
           description: OK
       tags:
       - Notebook
+      operationId: putApiNotebookByNoteIdRevisionByRevisionId
+      x-operation-id-source: derived
 x-generated-from: https://zeppelin.apache.org/docs/latest/usage/rest_api/notebook.html
 x-generated-by: claude-crawl-2026-05-08
