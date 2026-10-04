@@ -42,6 +42,7 @@ tags:
   - Notebooks
   - Visualization
   - Open Source
+  - Data Visualization
 tags_raw:
   - Data Analytics
   - Interactive Computing
@@ -49,6 +50,7 @@ tags_raw:
   - Visualization
   - Open Source
   - Open-Source
+  - Data Visualization
 created: '2026-03-16'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/apache-zeppelin/refs/heads/main/apis.yml
@@ -70,6 +72,9 @@ apis:
   - type: Documentation
     url: https://zeppelin.apache.org/docs/latest/usage/rest_api/interpreter.html
 common:
+  - type: CapabilityMap
+    url: capabilities/apache-zeppelin-capability-edges.yml
+    name: Apache Zeppelin Business Capability Map
   - type: Website
     url: https://www.apache.org/
   - type: SecurityPolicy
