@@ -1,0 +1,27 @@
+slug: apache-zeppelin
+provider: Apache Zeppelin
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Notebook
+  spec_file: apache-zeppelin-notebook-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: 'vendor: ''web-based notebook that enables data-driven, interactive data analytics and collaborative
+    documents with SQL, Scala, Python, R''; operations ''Create notebook'', ''Run all paragraphs'', ''Get
+    notebook job status'''
+  reason: The notebook surface is the primary vehicle for interactive analytics authoring and execution,
+    which realises Analytics & BI delivery; some of the surface is generic document CRUD, so confidence
+    is moderate.
