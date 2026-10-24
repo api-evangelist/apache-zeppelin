@@ -1,16 +1,20 @@
 {
   "provider": "apache-zeppelin",
   "sources": [
+    "_original/apache-zeppelin-openapi.json",
     "_ae-authored/apache-zeppelin-openapi.yml"
   ],
   "outputs": [
+    "apache-zeppelin-queues-api-openapi.yml",
+    "apache-zeppelin-status-api-openapi.yml",
     "apache-zeppelin-notebook-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apache-zeppelin-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
     "apache-zeppelin-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook -> Notebook",
     "apache-zeppelin-openapi.yml: tagged paths POST /api/notebook -> Notebook",
@@ -44,7 +48,7 @@
     "apache-zeppelin-openapi.yml: tagged paths GET /api/notebook/{noteId}/revision/{revisionId} -> Notebook",
     "apache-zeppelin-openapi.yml: tagged paths PUT /api/notebook/{noteId}/revision/{revisionId} -> Notebook",
     "apache-zeppelin-openapi.yml: declared missing tag: Notebook",
-    "apis.yml register: already-registered"
+    "apis.yml register: written (+2 apis, 3 total)"
   ],
   "skipped": [
     "apache-zeppelin-notebook-api-openapi.yml: previously refined output, superseded by openapi/_original/"
